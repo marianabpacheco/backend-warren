@@ -1,0 +1,23 @@
+{
+  "name": "backend-warren",
+  "version": "1.0.0",
+  "description": "Back-end WTA",
+  "main": "app.js",
+  "scripts": {
+    "dev":"nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianabpacheco/backend-warren.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marianabpacheco/backend-warren/issues"
+  },
+  "homepage": "https://github.com/marianabpacheco/backend-warren#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
