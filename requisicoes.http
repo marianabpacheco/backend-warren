@@ -1,0 +1,4 @@
+POST https://3000-marianabpac-backendwarr-g1xzakg4fh8.ws-us63.gitpod.io/transacoes
+content-type: application/json
+
+{"valor":10}
