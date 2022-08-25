@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="Pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Planilha de gastos</title>
 </head>
+
 <body>
-    <h1>Ola Mundo</h1>
+    <div class='pagina'>
+        <div class='conteudo'>
+            <h1>Planilha de gastos</h1>
+
+            <div class='informacao'>
+                <p id='saldo'>Carregando...</p>
+            </div>
+
+            <table class='lista-transacoes'>
+                <thead>
+                    <th class='coluna-descricao'>
+                        <h3>DESCRIÇÃO</h3>
+                    </th>
+                    <th class='coluna-categoria'>
+                        <h3>CATEGORIA</h3>
+                    </th>
+                    <th class='coluna-valor'>
+                        <h3>VALOR</h3>
+                    </th>
+                </thead>
+                <tbody id='lista-transacoes-conteudo'>
+                    <tr>
+                        <td class='coluna-descricao'></td>
+                        <td class='coluna-categoria'></td>
+                        <td class='coluna-valor'></td>
+                    </tr>
+                    <tr>
+                        <td class='coluna-descricao'></td>
+                        <td class='coluna-categoria'></td>
+                        <td class='coluna-valor'></td>
+                    </tr>
+                    <tr>
+                        <td class='coluna-descricao'></td>
+                        <td class='coluna-categoria'></td>
+                        <td class='coluna-valor'></td>
+                    </tr>
+                    <tr>
+                        <td class='coluna-descricao'></td>
+                        <td class='coluna-categoria'></td>
+                        <td class='coluna-valor'></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class='botoes'>
+            <button class='despesa' id='botao-despesa'>Adicionar despesa</button>
+            <button class='receita' id='botao-receita'>Adicionar receita</button>
+        </div>
+
+        <section class="modals">
+            <div class="modal-despesa">
+                <div class="conteudo-despesa">
+                    <label id="label-nome-despesa" for="nome-despesa">Qual o nome de sua despesa?</label>
+                    <input id="nome-despesa" name="nome-despesa" type="text" placeholder="Digite o nome da sua despesa">
+                    <label id="label-valor-despesa" for="valor-despesa">Qual o valor de sua despesa?</label>
+                    <input id="valor-despesa" name="valor-despesa" type="text" placeholder="R$">
+                    <div class="botoes">
+                        <button class="btn-adicionar-despesa" onclick="adicionarDespesa()">Adicionar despesa</button>
+                        <button class="btn-cancelar-despesa">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-receita">
+                <div class="conteudo-receita">
+                    <label id="label-nome-receita" for="nome-receita">Qual o nome de sua receita?</label>
+                    <input id="nome-receita" name="nome-receita" type="text" placeholder="Digite o nome da sua receita">
+                    <label  id="label-valor-despesa" for="valor-receita">Qual o valor de sua receita?</label>
+                    <input id="valor-receita" name="valor-receita" type="text" placeholder="R$">
+                    <div class="botoes">
+                        <button class="btn-adicionar-receita" onclick="adicionarReceita()">Adicionar receita</button>
+                        <button class="btn-cancelar-receita">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="./script.js"></script>
 </body>
+
 </html>
