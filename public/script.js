@@ -35,9 +35,9 @@ function formatarValor(valor) {
   return valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 }
 
-// function formatarDescricao(descricao) {
-//   return descricao.charAt(0).toUpperCase() + descricao.slice(1)
-// }
+function formatarDescricao(descricao) {
+  return descricao.charAt(0).toUpperCase() + descricao.slice(1)
+}
 
 
 ;
@@ -51,7 +51,7 @@ const adicionarTransacoes = (transacoes) => {
   let tabela = '';
   transacoes.reverse().forEach(transacao => {
     let linha = `<tr>
-                    <td class="coluna-descricao">${transacao.descricao}</td>
+                    <td class="coluna-descricao">${formatarDescricao(transacao.descricao)}</td>
                     <td class="coluna-categoria">${transacao.categoria}</td>
                     <td class="coluna-valor">${formatarValor(transacao.valor)}</td>
                   </tr>`

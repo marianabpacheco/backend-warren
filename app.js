@@ -1,6 +1,5 @@
-const TransacoesRepositorio = require('./transacoes-repositorio')
-
-
+require('dotenv/config')
+const TransacoesRepositorio = require('./infra/sql-transacoes-repositorio')
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -8,17 +7,28 @@ const port = 3000;
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
-app.get('/transacoes', (req, res) => {
+app.get('/transacoes', async(req, res) => {
     const repositorio = new TransacoesRepositorio();
-    const transacoes = repositorio.listarTransacoes();
+    const transacoes = await repositorio.listarTransacoes();
+    let saldo = 0
+    transacoes.transacoes.forEach((transacao) => {
+        if (transacao.categoria === "Despesa") {
+            saldo = saldo - transacao.valor
+        }
+        if (transacao.categoria === "Receita") {
+            saldo = saldo + transacao.valor
+        }
+    })
+
+    transacoes.saldo = saldo
     res.send(transacoes)
 }
 )
 
-app.post('/transacoes', (req, res) => {
+app.post('/transacoes', async (req, res) => {
     const repositorio = new TransacoesRepositorio();
     const transacao = req.body
-    repositorio.criarTransacao(transacao)
+    await repositorio.criarTransacao(transacao)
     res.status(201).send(transacao)
 })
 
